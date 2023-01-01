@@ -33,12 +33,12 @@ class Graph:
         print(self.solutionGraph)
         print("------------------------------------------------------------")
 
-    def computeMinimumCostChildNodes(self, v): # Computes the Minimum Cost of child nodes of a given node v
+    def computeMinimumCostChildNodes(self, v): 
         minimumCost=0
         costToChildNodeListDict={}
         costToChildNodeListDict[minimumCost]=[]
         flag=True
-        for nodeInfoTupleList in self.getNeighbors(v): # iterate over all the set of child node/s
+        for nodeInfoTupleList in self.getNeighbors(v): 
             cost=0
             nodeList=[]
             for c, weight in nodeInfoTupleList:
@@ -105,11 +105,11 @@ G1= Graph(graph1, h1, 'A')
 G1.applyAOStar()
 G1.printSolution()
 
-h2 = {'A': 1, 'B': 6, 'C': 12, 'D': 10, 'E': 4, 'F': 4, 'G': 5, 'H': 7} # Heuristic values of Nodes
-graph2 = { # Graph of Nodes and Edges
-    'A': [[('B', 1), ('C', 1)], [('D', 1)]], # Neighbors of Node 'A', B, C & D with repective weights
-    'B': [[('G', 1)], [('H', 1)]], # Neighbors are included in a list of lists
-    'D': [[('E', 1), ('F', 1)]] # Each sublist indicate a "OR" node or "AND" nodes
+h2 = {'A': 1, 'B': 6, 'C': 12, 'D': 10, 'E': 4, 'F': 4, 'G': 5, 'H': 7} 
+graph2 = {
+    'A': [[('B', 1), ('C', 1)], [('D', 1)]], 
+    'B': [[('G', 1)], [('H', 1)]],
+    'D': [[('E', 1), ('F', 1)]] 
 }
 
 G2 = Graph(graph2, h2, 'A') 
