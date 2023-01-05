@@ -24,16 +24,16 @@ class Graph:
         return self.H.get(n,0) 
 
     def setHeuristicNodeValue(self, n, value):
-        self.H[n]=value 
+        self.H[n]=value
 
 
     def printSolution(self):
         print("FOR GRAPH SOLUTION, TRAVERSE THE GRAPH FROM THE STARTNODE:",self.start)
-        print("------------------------------------------------------------")
+        print("-------------------------------")
         print(self.solutionGraph)
-        print("------------------------------------------------------------")
+        print("--------------------------")
 
-    def computeMinimumCostChildNodes(self, v): 
+    def computeMinimumCostChildNodes(self, v):
         minimumCost=0
         costToChildNodeListDict={}
         costToChildNodeListDict[minimumCost]=[]
@@ -66,7 +66,7 @@ class Graph:
 
         print("-----------------------------------------------------------------------------------------")
     
-        if self.getStatus(v) >= 0: # if status node v >= 0, compute Minimum Cost nodes of v
+        if self.getStatus(v) >= 0:
             minimumCost, childNodeList = self.computeMinimumCostChildNodes(v)
             self.setHeuristicNodeValue(v, minimumCost)
             self.setStatus(v,len(childNodeList))
@@ -106,10 +106,10 @@ G1.applyAOStar()
 G1.printSolution()
 
 h2 = {'A': 1, 'B': 6, 'C': 12, 'D': 10, 'E': 4, 'F': 4, 'G': 5, 'H': 7} 
-graph2 = {
+graph2 = { 
     'A': [[('B', 1), ('C', 1)], [('D', 1)]], 
-    'B': [[('G', 1)], [('H', 1)]],
-    'D': [[('E', 1), ('F', 1)]] 
+    'B': [[('G', 1)], [('H', 1)]], 
+    'D': [[('E', 1), ('F', 1)]] '
 }
 
 G2 = Graph(graph2, h2, 'A') 
